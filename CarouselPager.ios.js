@@ -17,6 +17,12 @@ var CarouselPager = React.createClass({
     this.props.onEnd(activePage);
   },
 
+  getDefaultProps() {
+    return {
+      keyboardShouldPersistTaps: false
+    }
+  },
+
   render() {
     return <ScrollView ref="scrollView"
       contentContainerStyle={this.props.contentContainerStyle}
@@ -28,6 +34,7 @@ var CarouselPager = React.createClass({
       onScrollBeginDrag={this.props.onBegin}
       onMomentumScrollEnd={this._onMomentumScrollEnd}
       scrollsToTop={false}
+      keyboardShouldPersistTaps={this.props.keyboardShouldPersistTaps}
     >
       {this.props.children}
     </ScrollView>;
